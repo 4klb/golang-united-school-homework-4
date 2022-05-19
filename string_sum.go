@@ -40,7 +40,7 @@ func StringSum(input string) (output string, err error) {
 	}
 
 	if (whitespace != 0 && whitespace == len(input)) || (len(input) == 0) {
-		return "", errorEmptyInput
+		return "", fmt.Errorf("%w", errorEmptyInput)
 	}
 
 	s := strings.Split(str, " ")
@@ -56,7 +56,7 @@ func StringSum(input string) (output string, err error) {
 	res, symbol := SplitBySymbol(str)
 
 	if len(res) != 2 {
-		return "", errorNotTwoOperands
+		return "", fmt.Errorf("%w", errorNotTwoOperands)
 	}
 
 	num1, num2, err := StrConvToInt(res)
