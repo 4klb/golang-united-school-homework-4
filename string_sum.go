@@ -61,7 +61,7 @@ func StringSum(input string) (output string, err error) {
 
 	num1, num2, err := StrConvToInt(res)
 	if err != nil {
-		return "", fmt.Errorf("%w", strconv.ErrSyntax)
+		return "", fmt.Errorf("%w", err.(*strconv.NumError).Err)
 	}
 
 	if firstNeg && symbol == '+' {
